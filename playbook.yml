@@ -196,12 +196,12 @@
 
 
       - name: Copy sample config file
-        command: mv /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php creates=/var/www/wordpress/wp-config.php
+        command: mv /var/html/wordpress/wp-config-sample.php /var/www/html/wp-config.php creates=/var/www/html/wp-config.php
         become: yes
 
       - name: Update WordPress config file
         lineinfile:
-            dest: /var/www/wordpress/wp-config.php
+            dest: /var/www/html/wp-config.php
             regexp: "{{ item.regexp }}"
             line: "{{ item.line }}"
         with_items:
