@@ -196,7 +196,7 @@
 
 
       - name: Copy sample config file
-        command: mv /var/html/wordpress/wp-config-sample.php /var/www/html/wp-config.php creates=/var/www/html/wp-config.php
+        command: mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php creates=/var/www/html/wp-config.php
         become: yes
 
       - name: Update WordPress config file
