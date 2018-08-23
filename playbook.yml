@@ -10,7 +10,7 @@
       security_group: security2 # Change the security group name here
       image: ami-5e8bb23b # This is an AMI i created myself
       keypair: Group13keypair # This is one of my keys that i already have in AWS
-      region: us-east-2b # Change the Region
+      region: us-east-2 # Change the Region
       count: 1
 
     # Task that will be used to Launch/Create an EC2 Instance
