@@ -7,7 +7,7 @@
     # Necessary Variables for creating/provisioning the EC2 Instance
     vars:
       instance_type: t2.micro
-      security_group: security2 # Change the security group name here
+      security_group: launch-wizard-11 # Change the security group name here
       image: ami-5e8bb23b # This is an AMI i created myself
       keypair: Group13keypair # This is one of my keys that i already have in AWS
       region: us-east-2 # Change the Region
