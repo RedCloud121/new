@@ -154,7 +154,7 @@
 
       - name: Install common PHP Extensions
         apt: 
-          name: libapache2-mod-php
+          name: libapache2-mod-php7.2
           state: present
         notify:
           - restart apache2
