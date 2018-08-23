@@ -190,11 +190,13 @@
       - name: Extract WordPress
         unarchive: 
           src: https://wordpress.org/latest.tar.gz 
-          dest: /var/www/
+          dest: /var/www/ #/var/www/wordpress potentially if latest.tar.gz doesnt contain 'wordpress'
           remote_src: yes
         become: yes
 
-
+      - name: Copy files from wordpress extract
+        command: cp -a var/www/wordpress/. /var/www/html
+        become: yes
       - name: Copy sample config file
         command: mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php creates=/var/www/html/wp-config.php
         become: yes
