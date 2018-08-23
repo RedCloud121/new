@@ -12,7 +12,7 @@
       keypair: Group13keypair # This is one of my keys that i already have in AWS
       region: us-east-2 # Change the Region
       count: 1
-
+      
     # Task that will be used to Launch/Create an EC2 Instance
     tasks:
 
@@ -40,10 +40,13 @@
               cidr_ip: 0.0.0.0/0
         register: basic_firewall
         
+        
       - name: create a new key
         ec2_key:
             name: "{{ keypair }}"
             region: "{{ region }}"
+            ipa: "{{ item.public_ip }}"
+        with_items: "{{ec2.instances}}"
         register: ec2_key_result
 
       - name: Save private key
@@ -82,9 +85,10 @@
         args:
           tags:
             Name: webserver
-     
+            
       - name: Refresh hosts file
         meta: refresh_inventory
+  
          
   - hosts: webserver
     name: Configure instance(s)
